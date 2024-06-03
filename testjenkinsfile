@@ -3,6 +3,7 @@ pepiline{
 
     stages{
         stage('Dep install'){
+            agent
             steps{
                 sh 'npm install'
             }
