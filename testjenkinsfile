@@ -5,9 +5,8 @@ pipeline {
         stage('Dep install') {
             agent {
                 docker {
-                    image 'node:14'
-                    args '-u root:sudo'
-                }
+                    image 'node:14.18.0'
+                    }
             }
             steps {
                 sh 'npm install'
