@@ -1,15 +1,18 @@
-pipeline{
+pipeline {
     agent any
 
-    stages{
-        stage('Dep install'){
-            agent { docker { image 'node:14'
-               args '-u root:sudo'}}
-            steps{
-               sh 'npm install'
-               sh 'sudo chown -R 995:993 "/.npm"'
+    stages {
+        stage('Dep install') {
+            agent {
+                docker {
+                    image 'node:14'
+                    args '-u root:sudo'
+                }
             }
-                
-           }
+            steps {
+                sh 'npm install'
+                sh 'sudo chown -R 995:993 "/.npm"'
+            }
         }
     }
+}
